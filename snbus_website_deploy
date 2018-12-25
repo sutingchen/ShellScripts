@@ -1,0 +1,29 @@
+#!/bin/bash
+# Deploy SNBus Website
+# command line: snbus_website_deploy
+
+: 'echo "Backing up /var/aspnetcore/sinanbus"
+backupFolder=$(date +"%Y.%m.%d_%H.%M.%S")
+cd ~/Documents/backup
+mkdir ${backupFolder}
+echo "Folder $backupFolder has been created"
+echo "Copying file..."
+sudo cp -r /var/aspnetcore/sinanbus/* ~/Documents/backup/$backupFolder
+'
+
+echo "Removing files"
+sudo rm -rf /var/aspnetcore/sinanbus/*
+echo "All files in /var/aspnetcore/sinanbus/ are removed."
+
+echo "Copy file from publish folder to /var/aspnetcore/sinanbus/"
+#sudo cp -r ~/Documents/websites/* /var/aspnetcore/sinanbus
+sudo cp -r /home/suting/Documents/Projects/snbus-schedules-optimization-app/SinanBus.ScheduleOptimization.App/bin/release/netcoreapp2.1/ubuntu.18.04-x64/publish/* /var/aspnetcore/sinanbus
+echo "Copied website contents"
+
+echo "Restarting supervisor..."
+sudo service supervisor stop
+sudo service supervisor start
+echo "Supervisor restarted"
+
+echo "Running websites..."
+sudo tail -f /var/log/supervisor/supervisord.log
