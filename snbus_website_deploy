@@ -1,23 +1,23 @@
 #!/bin/bash
-# Deploy SNBus Website
-# command line: snbus_website_deploy
+# Deploy obus Website
+# command line: obus_website_deploy
 
-: 'echo "Backing up /var/aspnetcore/sinanbus"
+: 'echo "Backing up /var/aspnetcore/obus"
 backupFolder=$(date +"%Y.%m.%d_%H.%M.%S")
 cd ~/Documents/backup
 mkdir ${backupFolder}
 echo "Folder $backupFolder has been created"
 echo "Copying file..."
-sudo cp -r /var/aspnetcore/sinanbus/* ~/Documents/backup/$backupFolder
+sudo cp -r /var/aspnetcore/obus/* ~/Documents/backup/$backupFolder
 '
 
 echo "Removing files"
-sudo rm -rf /var/aspnetcore/sinanbus/*
-echo "All files in /var/aspnetcore/sinanbus/ are removed."
+sudo rm -rf /var/aspnetcore/obus/*
+echo "All files in /var/aspnetcore/obus/ are removed."
 
-echo "Copy file from publish folder to /var/aspnetcore/sinanbus/"
-#sudo cp -r ~/Documents/websites/* /var/aspnetcore/sinanbus
-sudo cp -r /home/suting/Documents/Projects/snbus-schedules-optimization-app/SinanBus.ScheduleOptimization.App/bin/release/netcoreapp2.1/ubuntu.18.04-x64/publish/* /var/aspnetcore/sinanbus
+echo "Copy file from publish folder to /var/aspnetcore/obus/"
+#sudo cp -r ~/Documents/websites/* /var/aspnetcore/obus
+sudo cp -r /home/suting/Documents/Projects/obus-schedules-optimization-app/Obus.ScheduleOptimization.App/bin/release/netcoreapp2.1/ubuntu.18.04-x64/publish/* /var/aspnetcore/obus
 echo "Copied website contents"
 
 echo "Restarting supervisor..."
