@@ -8,7 +8,7 @@ This repository stores the Shell scripts which automate tasks in Mac or Linux en
 - Restart the supervisord process
 - Log activity details
 
-2. The File rename script can be used to when a set of files locating in the same folder have the same prefix and/or suffix that needs to be removed.
+2. The File Rename Script can be used to when a set of files locating in the same folder have the same prefix and/or suffix that needs to be removed.
 
 ## Usage
 1. Open the terminal. Go to the directory where the script is saved.
