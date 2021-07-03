@@ -1,5 +1,5 @@
 # ShellScripts
-Shell scripts that can be executed in a Mac or Linux environment which automate some tasks. 
+This repository contains shell scripts that can be executed in a Mac or Linux environment for some tasks automation. 
 
 1. The ASP.NET Core Website Deployment Script automates the following deployment steps in a Linux (Ubuntu) server:
 - Back up the old published files
