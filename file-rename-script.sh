@@ -12,8 +12,8 @@ find . -type f -name "${PREFIX}*.${EXT}" | while read FILE ; do
 done 
 
 find . -type f -name "*).${EXT}" | while read FILE ; do
-  echo "Old file name ${FILE}"
+  echo "Old file name: ${FILE}"
   NEWFILE="${FILE%).${EXT}}"
-  echo " New file name is ${NEWFILE}"
+  echo " New file name: ${NEWFILE}"
   mv "${FILE}" "${NEWFILE}".${EXT}
 done
